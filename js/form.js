@@ -10,11 +10,11 @@ botaoAdicionar.addEventListener("click",function(event){
 	
 	var pacienteTr = montaTr(paciente);
 
-	var erro = validaPaciente(paciente);
+	var erros = validaPaciente(paciente);
 
 	if(erro.length > 0){
 		var mensagemErro = document.querySelector("#mensagem-erro");
-		mensagemErro.textContent = erro;
+		mensagemErro.textContent = erros;
 		return;
 	}
 
