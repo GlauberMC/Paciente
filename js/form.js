@@ -43,32 +43,11 @@ function montaTr(paciente){
 	pacienteTr.classList.add("paciente");
 
 
-	var nomeTd = document.createElement("td");
-    nomeTd.classList.add("info-nome"); // adicionando td (info-nome) a classe paciente
-    nomeTd.textContent = paciente.nome;
-
-    var pesoTd = document.createElement("td");
-    pesoTd.classList.add("info-peso"); // adicionando td (info-peso) a classe paciente
-    pesoTd.textContent = paciente.peso;
-
-    var alturaTd = document.createElement("td");
-    alturaTd.classList.add("info-altura"); // adicionando td (info-altura) a classe paciente
-    alturaTd.textContent = paciente.altura;
-
-    var gorduraTd = document.createElement("td");
-    gorduraTd.classList.add("info-gordura"); // adicionando td (info-gordura) a classe paciente
-    gorduraTd.textContent = paciente.gordura;
-
-    var imcTd = document.createElement("td");
-    imcTd.classList.add("info-imc"); // adicionando td (info-imc) a classe paciente
-    imcTd.textContent = paciente.imc;
-
-
-    nomeTd.textContent = paciente.nome;
-    pesoTd.textContent = paciente.peso;
-    alturaTd.textContent = paciente.altura;
-    gorduraTd.textContent = paciente.gordura;
-    imcTd.textContent = paciente.imc;
+	var nomeTd = montaTd(paciente.nome, "info-nome");
+    var pesoTd = montaTd(paciente.peso, "info-peso");
+    var alturaTd = montaTd(paciente.altura, "info-peso");
+    var gorduraTd = montaTd(paciente.gordura, "info-gordura");
+    var imcTd = montaTd(paciente.imc, "info-imc");
 
 
     pacienteTr.appendChild(nomeTd);
@@ -79,4 +58,12 @@ function montaTr(paciente){
 
     return pacienteTr;
 
+}
+
+function montaTd(dado, classe){
+	var td = document.createElement("td");
+	td.textContent = dado;
+	td.classList.add(classe);
+
+	return td;
 }
