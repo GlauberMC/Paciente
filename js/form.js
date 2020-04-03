@@ -10,28 +10,9 @@ botaoAdicionar.addEventListener("click",function(event){
 	var paciente = obtemPacienteDoFormulario(form);
 	console.log(paciente);
 
-
 	//cria a tr e a td do paciente
-	var pacienteTr = document.createElement("tr");
-
-	var nomeTd = document.createElement("td");
-    var pesoTd = document.createElement("td");
-    var alturaTd = document.createElement("td");
-    var gorduraTd = document.createElement("td");
-    var imcTd = document.createElement("td");
-
-	nomeTd.textContent = nome;
-    pesoTd.textContent = peso;
-    alturaTd.textContent = altura;
-    gorduraTd.textContent = gordura;
-    imcTd.textContent = calculaImc(peso,altura);
-
-    pacienteTr.appendChild(nomeTd);
-    pacienteTr.appendChild(pesoTd);
-    pacienteTr.appendChild(alturaTd);
-    pacienteTr.appendChild(gorduraTd);
-    pacienteTr.appendChild(imcTd);
-
+	var pacienteTr = montaTr(paciente);
+	
 	console.log(pacienteTr);
 
 	//adicionando o paciente na tabela.
@@ -52,4 +33,32 @@ function obtemPacienteDoFormulario(form){
 
 	}
 	return paciente;
+}
+
+// Refatorando a criação das td's do código
+function montaTr(paciente){
+
+	var pacienteTr = document.createElement("tr");	
+
+	var nomeTd = document.createElement("td");
+    var pesoTd = document.createElement("td");
+    var alturaTd = document.createElement("td");
+    var gorduraTd = document.createElement("td");
+    var imcTd = document.createElement("td");
+
+    nomeTd.textContent = paciente.nome;
+    pesoTd.textContent = paciente.peso;
+    alturaTd.textContent = paciente.altura;
+    gorduraTd.textContent = paciente.gordura;
+    imcTd.textContent = paciente.imc;
+
+
+    pacienteTr.appendChild(nomeTd);
+    pacienteTr.appendChild(pesoTd);
+    pacienteTr.appendChild(alturaTd);
+    pacienteTr.appendChild(gorduraTd);
+    pacienteTr.appendChild(imcTd);
+
+    return pacienteTr;
+
 }
